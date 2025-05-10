@@ -1,0 +1,25 @@
+From 8ee352c0f6db12b4f1eb9f1064a297df157e6aa8 Mon Sep 17 00:00:00 2001
+From: bengris32 <bengris32@protonmail.ch>
+Date: Tue, 26 Nov 2024 16:25:15 +0000
+Subject: [PATCH] sepolicy: Label legacy Gatekeeper AIDL service
+
+Signed-off-by: bengris32 <bengris32@protonmail.ch>
+Change-Id: I7183b7a874336a1e49c075f5c6d07e396383bd0c
+---
+ common/vendor/file_contexts | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/common/vendor/file_contexts b/common/vendor/file_contexts
+index 07ac458..9dd5711 100644
+--- a/common/vendor/file_contexts
++++ b/common/vendor/file_contexts
+@@ -2,6 +2,9 @@
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service u:object_r:hal_fingerprint_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.lineage u:object_r:hal_fingerprint_default_exec:s0
+ 
++# Gatekeeper HAL
++/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.legacy u:object_r:hal_gatekeeper_default_exec:s0
++
+ # Health HAL
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.batteryless u:object_r:hal_health_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/vendor\.lineage\.health-service\.default u:object_r:hal_lineage_health_default_exec:s0
