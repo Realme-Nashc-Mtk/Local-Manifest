@@ -75,17 +75,8 @@ ask_yes_no() {
     local prompt_text="$1"
     local prompt="${COLOR_YELLOW}[PROMPT]${COLOR_RESET} ${prompt_text} [y/N]: "
     local response
-    while true; do
-        read -p "$(echo -e "$prompt")" response
-        response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-        if [[ "$response" == "y" || "$response" == "yes" ]]; then
-            return 0
-        elif [[ "$response" == "n" || "$response" == "no" || -z "$response" ]]; then
-            return 1
-        else
-            warn "Please answer 'y' (yes) or 'n' (no)."
-        fi
-    done
+    echo "y" # force yes
+    return 0
 }
 
 handle_cherry_pick() {
