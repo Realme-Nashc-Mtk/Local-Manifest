@@ -22,6 +22,7 @@ declare -A REPOS=(
     ["device/realme/nashc"]="https://github.com/Realme-Nashc-Mtk/android_device_realme_nashc.git"
     ["vendor/realme/nashc"]="https://gitlab.com/realme-nashc-mtk/android_vendor_realme_nashc.git"
     ["kernel/realme/nashc"]="https://github.com/Realme-Nashc-Mtk/android_kernel_realme_nashc.git"
+    ["hardware/dolby"]="https://github.com/Realme-Nashc-Mtk/android_hardware_dolby.git"
     ["hardware/oplus"]="https://github.com/Realme-Nashc-Mtk/android_hardware_oplus.git"
     ["hardware/mediatek"]="https://github.com/Realme-Nashc-Mtk/android_hardware_mediatek.git"
 )
@@ -31,6 +32,7 @@ declare -A BRANCHES=(
     ["device/realme/nashc"]="15.0"
     ["vendor/realme/nashc"]="15.0"
     ["kernel/realme/nashc"]="15.0"
+    ["hardware/dolby"]="15.0"
     ["hardware/oplus"]="15.0"
     ["hardware/mediatek"]="15.0"
 )
