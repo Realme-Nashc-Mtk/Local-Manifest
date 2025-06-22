@@ -4,8 +4,10 @@
 LINEAGE_INTERFACES="hardware/lineage/interfaces"
 LINEAGE_SEPOLICY="device/lineage/sepolicy"
 PATCH_URL_AIDL="https://raw.githubusercontent.com/Realme-Nashc-Mtk/Local-Manifest/refs/heads/15.0/patches/gatekeeper-aidl.patch"
+PATCH_URL_AIDL_ERROR_HANDLING="https://raw.githubusercontent.com/Realme-Nashc-Mtk/Local-Manifest/refs/heads/15.0/patches/gatekeeper-aidl-error-handling.patch"
 PATCH_URL_SEPOLICY="https://raw.githubusercontent.com/Realme-Nashc-Mtk/Local-Manifest/refs/heads/15.0/patches/gatekeeper-sepolicy.patch"
 PATCH_FILE_AIDL="gatekeeper-aidl.patch"
+PATCH_FILE_AIDL_ERROR_HANDLING="gatekeeper-aidl-error-handling.patch"
 PATCH_FILE_SEPOLICY="gatekeeper-sepolicy.patch"
 
 apply_patch() {
@@ -45,7 +47,14 @@ if ! apply_patch "$LINEAGE_INTERFACES" "$PATCH_URL_AIDL" "$PATCH_FILE_AIDL"; the
   echo "Warning: Failed to apply Gatekeeper AIDL patch. Continuing anyway..."
 fi
 
+# Apply Gatekeeper AIDL Error handling patch
+if ! apply_patch "$LINEAGE_INTERFACES" "$PATCH_URL_AIDL_ERROR_HANDLING" "$PATCH_FILE_AIDL_ERROR_HANDLING"; then
+  echo "Warning: Failed to apply Gatekeeper AIDL Error handling patch. Continuing anyway..."
+fi
+
 # Apply Gatekeeper Sepolicy patch
-apply_patch "$LINEAGE_SEPOLICY" "$PATCH_URL_SEPOLICY" "$PATCH_FILE_SEPOLICY"
+if ! apply_patch "$LINEAGE_SEPOLICY" "$PATCH_URL_SEPOLICY" "$PATCH_FILE_SEPOLICY"; then
+  echo "Warning: Failed to apply Gatekeeper Sepolicy patch. Continuing anyway..."
+fi
 
 echo "Script finished."
